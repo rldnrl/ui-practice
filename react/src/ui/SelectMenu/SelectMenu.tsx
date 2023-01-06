@@ -22,9 +22,12 @@ export default function SelectMenu({
       return;
     }
 
+    const value = e.target.dataset.value as string;
+    const label = e.target.dataset.label as string;
+
     onSelect?.({
-      value: e.target.dataset.value as string,
-      label: e.target.dataset.label as string,
+      value,
+      label,
     });
     setToggle(false);
   };
