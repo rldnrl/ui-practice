@@ -1,6 +1,7 @@
-import { MouseEventHandler, useState } from "react";
+import { MouseEventHandler, useRef, useState } from "react";
 import selectMenuStyle from "./SelectMenu.style";
 import { Field } from "../../types/field";
+import useOutsideClick from "../../hooks/useOutsideClick";
 
 interface SelectMenuProps {
   fields: Field[];
@@ -13,7 +14,16 @@ export default function SelectMenu({
   selectedField,
   onSelect,
 }: SelectMenuProps) {
+  const selectMenuRef = useRef<HTMLDivElement | null>(null);
   const [toggle, setToggle] = useState(false);
+
+  useOutsideClick(
+    selectMenuRef,
+    () => {
+      setToggle(false);
+    },
+    "mousedown"
+  );
 
   const onClick = () => setToggle((prevToggle) => !prevToggle);
 
@@ -33,7 +43,7 @@ export default function SelectMenu({
   };
 
   return (
-    <div className={selectMenuStyle.selectMenu}>
+    <div ref={selectMenuRef} className={selectMenuStyle.selectMenu}>
       <div className={selectMenuStyle.selectButton} onClick={onClick}>
         <span>{selectedField?.label ?? "Select your option"}</span>
         <i className={`bx bx-chevron-down ${selectMenuStyle.icon(toggle)}`}></i>
