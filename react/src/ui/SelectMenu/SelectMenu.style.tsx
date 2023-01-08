@@ -3,7 +3,7 @@ import { css } from "@emotion/css";
 const selectMenuStyle = {
   selectMenu: css`
     position: relative;
-    width: 380px;
+    width: 100%;
     margin: 0 auto;
   `,
   selectButton: css`
