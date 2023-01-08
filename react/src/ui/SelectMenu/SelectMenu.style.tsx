@@ -2,6 +2,7 @@ import { css } from "@emotion/css";
 
 const selectMenuStyle = {
   selectMenu: css`
+    position: relative;
     width: 380px;
     margin: 0 auto;
   `,
@@ -24,12 +25,16 @@ const selectMenuStyle = {
     ${active ? "transform: rotate(-180deg);" : ""}
   `,
   options: (active: boolean) => css`
-    position: relative;
+    width: 100%;
+    position: absolute;
+    top: 55px;
+    left: 0;
     padding: 20px;
     margin-top: 10px;
     border-radius: 8px;
     background-color: white;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+    z-index: 10;
     display: ${active ? "block" : "none"};
   `,
   option: css`
