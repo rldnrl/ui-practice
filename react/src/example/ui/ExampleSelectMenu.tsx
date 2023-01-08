@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Field } from "../types/field";
-import SelectMenu from "../ui/SelectMenu";
+import { useCallback, useState } from "react";
+import { Field } from "../../types/field";
+import SelectMenu from "../../ui/SelectMenu";
 
 const fields: Field[] = [
   {
@@ -24,9 +24,9 @@ const fields: Field[] = [
 export default function ExampleSelectMenu() {
   const [selectedField, setSelectedField] = useState<Field>();
 
-  const handleSelect = (field?: Field) => {
+  const handleSelect = useCallback((field?: Field) => {
     setSelectedField(field);
-  };
+  }, []);
 
   return (
     <SelectMenu
