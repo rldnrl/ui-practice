@@ -5,9 +5,11 @@ import {
   createContext,
   useCallback,
   useContext,
+  useRef,
   useState,
 } from "react";
 import selectMenuStyle from "./SelectMenu.style";
+import useOutsideClick from "../../hooks/useOutsideClick";
 
 interface SelectMenuContextType {
   innerLabel: string;
@@ -35,8 +37,11 @@ export default function SelectMenu({
   onChange,
   children,
 }: SelectMenuProps) {
+  const divContainerRef = useRef<HTMLDivElement | null>(null);
   const [toggle, setToggle] = useState<boolean>(false);
   const [innerLabel, setInnerLabel] = useState<string>(label);
+
+  useOutsideClick(divContainerRef, () => setToggle(false), "mousedown");
 
   const onToggle = useCallback(
     () => setToggle((prevToggle) => !prevToggle),
@@ -56,7 +61,7 @@ export default function SelectMenu({
         onChange: handleClick,
       }}
     >
-      <div className={selectMenuStyle.selectMenu}>
+      <div ref={divContainerRef} className={selectMenuStyle.selectMenu}>
         <div className={selectMenuStyle.selectButton} onClick={onToggle}>
           <span>{innerLabel}</span>
           <i className={`bx bx-chevron-down ${selectMenuStyle.icon(toggle)}`} />
