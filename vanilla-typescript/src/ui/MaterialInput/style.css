@@ -28,7 +28,7 @@ input:is(:focus, :valid) {
   border-color: #4070f4;
 }
 
-.input-box :is(label, i) {
+.input-box :is(span, i) {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -36,14 +36,14 @@ input:is(:focus, :valid) {
   transition: all 0.2s ease;
 }
 
-.input-box label {
+.input-box span {
   left: 15px;
   pointer-events: none;
   font-size: 16px;
   font-weight: 400;
 }
 
-input:is(:focus, :valid) ~ label {
+input:is(:focus, :valid) ~ span {
   color: #4070f4;
   top: 0;
   font-size: 12px;

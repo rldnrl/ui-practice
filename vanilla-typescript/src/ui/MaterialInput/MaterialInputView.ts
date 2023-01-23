@@ -4,7 +4,7 @@ const MaterialInputView = `
   <div class="container">
     <div class="input-box">
       <input type="text" required>
-      <label>Password</label>
+      <span>Password</span>
       <i class='bx bx-hide'></i>
     </div>
   </div>
