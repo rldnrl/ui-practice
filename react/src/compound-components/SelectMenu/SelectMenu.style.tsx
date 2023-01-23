@@ -33,7 +33,7 @@ const selectMenuStyle = {
     border-radius: 8px;
     background-color: white;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-    z-index: 10px;
+    z-index: 10;
     display: ${active ? "block" : "none"};
   `,
   option: css`
