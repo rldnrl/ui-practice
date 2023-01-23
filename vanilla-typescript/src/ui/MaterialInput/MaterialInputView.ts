@@ -3,9 +3,9 @@ import "./style.css";
 const MaterialInputView = `
   <div class="container">
     <div class="input-box">
-      <input type="text" required>
+      <input type="password" required>
       <span>Password</span>
-      <i class='bx bx-hide'></i>
+      <i class='bx bx-hide toggle'></i>
     </div>
   </div>
 `;
