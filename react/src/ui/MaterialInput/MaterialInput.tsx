@@ -18,6 +18,18 @@ export default function MaterialInput({
   const typeByShowPassword =
     showPassword && type === "password" ? "text" : "password";
 
+  const renderShowPasswordIcon = (): JSX.Element => {
+    if (!hasHiddenButton) {
+      return <></>;
+    }
+
+    return showPassword ? (
+      <i className="bx bx-show" onClick={() => setShowPassword(false)} />
+    ) : (
+      <i className="bx bx-hide" onClick={() => setShowPassword(true)} />
+    );
+  };
+
   return (
     <div className="input-box">
       <input
@@ -27,11 +39,7 @@ export default function MaterialInput({
         value={value}
       />
       <span>{label}</span>
-      {hasHiddenButton && showPassword ? (
-        <i className="bx bx-show" onClick={() => setShowPassword(false)} />
-      ) : (
-        <i className="bx bx-hide" onClick={() => setShowPassword(true)} />
-      )}
+      {renderShowPasswordIcon()}
     </div>
   );
 }
