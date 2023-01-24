@@ -24,7 +24,7 @@
   transition: all 0.2s linear;
 }
 
-input:is(:focus, :valid) {
+input:focus {
   border-color: #4070f4;
 }
 
@@ -43,8 +43,17 @@ input:is(:focus, :valid) {
   font-weight: 400;
 }
 
-input:is(:focus, :valid) ~ span {
+input:focus ~ span {
   color: #4070f4;
+  top: 0;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #fff;
+  padding: 0 4px;
+}
+
+.material-input:not(:focus).material-input:not(:placeholder-shown) ~ span {
+  color: #ccc;
   top: 0;
   font-size: 12px;
   font-weight: 500;
@@ -58,6 +67,6 @@ input:is(:focus, :valid) ~ span {
   font-size: 20px;
 }
 
-input:is(:focus, :valid) ~ i {
+input:focus ~ i {
   color: #4070f4;
 }
