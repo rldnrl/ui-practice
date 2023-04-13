@@ -1,6 +1,6 @@
 import { MouseEventHandler, ReactNode } from "react";
 import menuItemStyle from "./MenuItem.style";
-import { useSelectMenu } from "../SelectMenu/SelectMenu";
+import { useSelectMenu } from "../SelectMenu";
 
 interface MenuItemProps {
   value: string;

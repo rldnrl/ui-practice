@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import SelectMenu from "../../compound-components/SelectMenu";
-import MenuItem from "../../compound-components/MenuItem";
+import MenuItem from "../../compound-components/SelectMenu/MenuItem";
 
 export default function ExampleSelectMenu() {
   const [selectedValue, setSelectedValue] = useState<string>("");
